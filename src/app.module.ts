@@ -6,12 +6,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { HttpExceptionFilter } from './exception-filter/exception-filter';
 import { WebsocketsModule } from './websockets/websockets.module';
 import { MONGO_DB_ACCESS_STRING } from './constants';
+import { ReplyModule } from './reply/reply.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     WebsocketsModule,
     MongooseModule.forRoot(MONGO_DB_ACCESS_STRING),
+    ReplyModule,
   ],
   controllers: [],
   providers: [
