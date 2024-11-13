@@ -1,7 +1,6 @@
-import { IReply, ReplyStatusType } from 'src/db/schemas/types';
+import { IReply, ReplyStatusType } from './types';
 
 export class CreateReplyDto implements IReply {
-  status: ReplyStatusType;
   company: string;
   position: string;
   salaryFork: number;

@@ -11,8 +11,8 @@ import { ReplyModule } from './reply/reply.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    WebsocketsModule,
     MongooseModule.forRoot(MONGO_DB_ACCESS_STRING),
+    WebsocketsModule,
     ReplyModule,
   ],
   controllers: [],

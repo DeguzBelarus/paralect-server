@@ -1,6 +1,18 @@
-import { IReply } from 'src/db/schemas/types';
+import { Types } from 'mongoose';
+
 import { IGeneralResponse } from 'src/types';
 
-export interface IGetAllRepliesResponseData extends IGeneralResponse {
+export type ReplyStatusType = 'accepted' | 'refused' | 'waiting';
+
+export interface IReply {
+  _id?: Types.ObjectId;
+  status?: ReplyStatusType;
+  company: string;
+  position: string;
+  salaryFork: number;
+  note: string;
+}
+
+export interface IRepliesResponseData extends IGeneralResponse {
   data: Array<IReply>;
 }

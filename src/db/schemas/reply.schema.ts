@@ -1,19 +1,17 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-import { IReply, ReplyStatusType } from './types';
+import { IReply, ReplyStatusType } from 'src/reply/types';
 
 @Schema()
 export class Reply implements IReply {
-  @Prop()
-  _id?: string;
-  @Prop()
+  @Prop({ default: 'waiting' })
   status: ReplyStatusType;
-  @Prop()
+  @Prop({ required: true })
   company: string;
-  @Prop()
+  @Prop({ required: true })
   position: string;
-  @Prop()
+  @Prop({ required: true })
   salaryFork: number;
   @Prop()
   note: string;
