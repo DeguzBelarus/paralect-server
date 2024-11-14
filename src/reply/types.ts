@@ -6,11 +6,11 @@ export type ReplyStatusType = 'accepted' | 'refused' | 'waiting';
 
 export interface IReply {
   _id?: Types.ObjectId;
-  status?: ReplyStatusType;
+  status: ReplyStatusType;
   company: string;
   position: string;
   salaryFork: number;
-  note: string;
+  note?: string;
 }
 
 export interface IRepliesResponseData extends IGeneralResponse {

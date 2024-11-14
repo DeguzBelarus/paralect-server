@@ -21,7 +21,7 @@ export class ReplyService {
 
   async createReply(createReplyDto: CreateReplyDto): Promise<IRepliesResponseData> {
     validateCreateReplyDto(createReplyDto);
-    await this.replyModel.create({ ...createReplyDto, status: 'waiting' });
+    await this.replyModel.create(createReplyDto);
     const replies = await this.replyModel.find();
     return {
       message: 'The reply was successfully created',

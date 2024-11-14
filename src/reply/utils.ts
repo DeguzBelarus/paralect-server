@@ -5,14 +5,15 @@ import { IReply, ReplyStatusType } from './types';
 const RIGHT_REPLY_STATUSES_ARRAY: Array<ReplyStatusType> = ['accepted', 'refused', 'waiting'];
 
 export const validateCreateReplyDto = (dto: IReply) => {
-  const { company, note, position, salaryFork } = dto;
-  if (!company || !position) {
+  const { company, note, position, salaryFork, status } = dto;
+  if (!company || !position || !status) {
     throw new BadRequestException('Not enough data to perform the operation');
   }
   const isSpecifiedNoteIncorrect = note && typeof note !== 'string';
   if (
     typeof company !== 'string' ||
     typeof position !== 'string' ||
+    typeof status !== 'string' ||
     typeof salaryFork !== 'number' ||
     isSpecifiedNoteIncorrect
   ) {

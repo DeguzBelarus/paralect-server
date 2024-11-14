@@ -5,7 +5,7 @@ import { IReply, ReplyStatusType } from 'src/reply/types';
 
 @Schema()
 export class Reply implements IReply {
-  @Prop({ default: 'waiting' })
+  @Prop({ required: true })
   status: ReplyStatusType;
   @Prop({ required: true })
   company: string;
@@ -13,7 +13,7 @@ export class Reply implements IReply {
   position: string;
   @Prop({ required: true })
   salaryFork: number;
-  @Prop()
+  @Prop({ default: '' })
   note: string;
 }
 export type ReplyDocument = HydratedDocument<Reply>;
