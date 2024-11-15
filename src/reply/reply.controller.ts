@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
 import { ReplyService } from './reply.service';
 import { RoutesEnum } from 'src/routes';
@@ -20,7 +20,7 @@ export class ReplyController {
     return await this.replyService.createReply(body);
   }
 
-  @Post(ReplyRoutesEnum.REPLY_UPDATE_ROUTE)
+  @Put(ReplyRoutesEnum.REPLY_UPDATE_ROUTE)
   async updateReply(@Body() body: UpdateReplyDto, @Param('replyId') replyId: string) {
     body.salaryFork = Number(body.salaryFork);
     return await this.replyService.updateReply(replyId, body);
