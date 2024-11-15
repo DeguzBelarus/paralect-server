@@ -16,11 +16,13 @@ export class ReplyController {
 
   @Post()
   async createReply(@Body() body: CreateReplyDto) {
+    body.salaryFork = Number(body.salaryFork);
     return await this.replyService.createReply(body);
   }
 
   @Post(ReplyRoutesEnum.REPLY_UPDATE_ROUTE)
   async updateReply(@Body() body: UpdateReplyDto, @Param('replyId') replyId: string) {
+    body.salaryFork = Number(body.salaryFork);
     return await this.replyService.updateReply(replyId, body);
   }
 
