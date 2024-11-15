@@ -8,7 +8,9 @@ const RIGHT_REPLY_STATUSES_ARRAY: Array<ReplyStatusType> = ['accepted', 'refused
 const generalValidation = (status: ReplyStatusType, salaryFork: number, note?: string) => {
   const isNotSalaryForkSpecified = typeof salaryFork === 'number' && !salaryFork;
   if (note && note.length > REPLY_NOTE_MAXIMUM_LENGTH) {
-    throw new BadRequestException('The note cannot be longer than 100 characters');
+    throw new BadRequestException(
+      `The note cannot be longer than ${REPLY_NOTE_MAXIMUM_LENGTH} characters`,
+    );
   }
   if (!RIGHT_REPLY_STATUSES_ARRAY.includes(status)) {
     throw new BadRequestException('The specified reply status is not a valid');
